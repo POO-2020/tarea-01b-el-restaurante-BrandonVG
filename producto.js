@@ -1,5 +1,5 @@
 import Precio from "./precio.js";
-class Producto{
+export default class Producto{
     /**
      * 
      * @param {string} nombre Nombre del producto

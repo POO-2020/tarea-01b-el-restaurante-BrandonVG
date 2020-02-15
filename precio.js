@@ -7,6 +7,7 @@ export default class Precio{
         this.valor= valor;
     }
     getPrecio(){
+        
         return(`$${this.valor}`);
     }
 }
