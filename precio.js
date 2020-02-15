@@ -1,4 +1,4 @@
-class Precio{
+export default class Precio{
     /**
      * 
      * @param {number} valor Valor
@@ -10,5 +10,7 @@ class Precio{
         return(`$${this.valor}`);
     }
 }
+/*
 var precio1= new Precio(1127);
 console.log(precio1.getPrecio());
+*/
