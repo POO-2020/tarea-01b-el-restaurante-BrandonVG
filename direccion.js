@@ -30,5 +30,7 @@ export default class Direccion{
         }
     }
 }
+/*
 var direccion1= new Direccion("Gran Higuera",441,6,"Buena vista",28984,"Villa de Alvarez","Villa de Alvarez");
 console.log(direccion1.getFormatoCorto());
+*/
