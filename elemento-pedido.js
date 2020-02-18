@@ -11,9 +11,11 @@ class ElementoPedido{
         this.cantidad=cantidad;
     }
     getDescripcion(){
-        return(`${this.cantidad} x ${this.producto.getDescripcion()}`);
+        var variableInutil = this.producto.getDescripcion()
+        var resto = variableInutil.split("$");
+        var precioTemp = resto.pop();
+        var productoSinP= resto.join("$");
+        var cantidadReal= precioTemp * this.cantidad;
+        return(`${this.cantidad} x ${productoSinP}$${cantidadReal}`);
     }
 }
-var elemento1= new ElementoPedido(new Producto("jabon Ariel",(new Precio(50))),2);
-
-console.log(elemento1.getDescripcion());
