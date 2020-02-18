@@ -1,6 +1,6 @@
 import Producto from "./producto.js";
 import Precio from "./precio.js";
-class ElementoPedido{
+export default class ElementoPedido{
     /**
      * 
      * @param {Producto} producto Objeto producto
