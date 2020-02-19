@@ -15,7 +15,7 @@ export default class ElementoPedido{
         var resto = variableInutil.split("$");
         var precioTemp = resto.pop();
         var productoSinP= resto.join("$");
-        var cantidadReal= precioTemp * this.cantidad;
-        return(`${this.cantidad} x ${productoSinP}$${cantidadReal}`);
+        var precioReal= precioTemp * this.cantidad;
+        return(`${this.cantidad} x ${productoSinP}$${precioReal}`);
     }
 }
