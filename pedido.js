@@ -35,16 +35,23 @@ export default class Pedido{
         });
     }
     getCostoTotal(){
-        
+        var total=0;
+        this.elementosPedidos.forEach(elementos=>{
+            var variableInutil = elementos.getDescripcion()
+            var resto = variableInutil.split("$");
+            var precioTemp = resto.pop();
+            var productoSinP= resto.join("$");
+            var precioReal= precioTemp * this.cantidad;
+            total=total+precioReal;
+            console.log(total);
+        })
     }
     agregarElemento(elemento){
         this.elementosPedidos.push(elemento)
     }
     listarElementos(){
         this.elementosPedidos.forEach((elementos,index)=>{
-            console.log(`${index},${elementos.getDescripcion()}`);
+            console.log(`${elementos.getDescripcion()}`);
         });
     }
 }
-var asdaw = new Pedido(new Fecha(14,7,2020),new Tiempo(15,20),new Cliente("Elmo",new Direccion("siasd",2,2,"asd",2,"as","asdwa"),3121683637),new ElementoPedido(new Producto("pizza",new Precio(50)),3));
-console.log(asdaw.listarElementos());

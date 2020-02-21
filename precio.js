@@ -7,8 +7,9 @@ export default class Precio{
         this.valor= valor;
     }
     getPrecio(){
-        
-        return(`$${this.valor}`);
+        var numeros= this.valor;
+        var formato= new Intl.NumberFormat("en-US").format(numeros);
+        return(`$${formato}`);
     }
 }
 /*
