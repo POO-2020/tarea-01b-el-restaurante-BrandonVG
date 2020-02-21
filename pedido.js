@@ -6,7 +6,7 @@ import Cliente from "./cliente.js";
 import Direccion from "./direccion.js";
 import Precio from "./precio.js";
 import Producto from "./producto.js";
-export default class Pedido{
+export default class Pedido {
     /**
      * 
      * @param {Fecha} fecha Fecha del pedido
@@ -20,38 +20,34 @@ export default class Pedido{
         this.cliente=cliente;
         this.elementosPedidos=[];
     }
+    
     getResumen(){
-        return (`${this.fecha.getFecha()} ${this.hora.getFormato12()} - `);
+        return `${this.fecha.getFecha()}  ${this.hora.getFormato12()} Un total de ${this.getNumeroElementos()} Elementos con  ${this.getNumeroProductos()} productos total: ${this.getCostoTotal()}`;
     }
     getNumeroElementos(){
         return (this.elementosPedidos.length);
     }
-    getNumeroProductos(elemento){
-        var sumaPro=0;
-        this.elementosPedidos.forEach((elementos,index)=>{
-            var variableInutil = this.elementos.getDescripcion()
-            var otraVarIn = variableInutil.charAt(0)
-            sumaPro= sumaPro+otraVarIn;
+    getNumeroProductos(){
+        var nProductos = 0;
+        this.elementosPedidos.forEach(elemento => {
+            nProductos+=elemento.cantidad;
         });
+        return nProductos;
     }
     getCostoTotal(){
-        var total=0;
-        this.elementosPedidos.forEach(elementos=>{
-            var variableInutil = elementos.getDescripcion()
-            var resto = variableInutil.split("$");
-            var precioTemp = resto.pop();
-            var productoSinP= resto.join("$");
-            var precioReal= precioTemp * this.cantidad;
-            total=total+precioReal;
-            console.log(total);
-        })
+        var total = 0;
+        this.elementosPedidos.forEach(elemento => {
+            total += elemento.cantidad * elemento.producto.precio.valor;
+        });
+        return new Precio(total).getPrecio();
+
     }
     agregarElemento(elemento){
         this.elementosPedidos.push(elemento)
     }
     listarElementos(){
-        this.elementosPedidos.forEach((elementos,index)=>{
-            console.log(`${elementos.getDescripcion()}`);
+        this.elementosPedidos.forEach(elemento=>{
+            console.log(elemento.getDescripcion())
         });
     }
 }

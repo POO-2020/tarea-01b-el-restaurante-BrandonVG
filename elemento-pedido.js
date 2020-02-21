@@ -11,11 +11,9 @@ export default class ElementoPedido{
         this.cantidad=cantidad;
     }
     getDescripcion(){
-        var variableInutil = this.producto.getDescripcion()
-        var resto = variableInutil.split("$");
-        var precioTemp = resto.pop();
-        var productoSinP= resto.join("$");
-        var precioReal= precioTemp * this.cantidad;
-        return(`${this.cantidad} x ${productoSinP}$${precioReal}`);
+        var costo=this.producto.precio.valor;
+        var total = costo*this.cantidad;
+        var descripcion =`${this.cantidad} x ${this.producto.nombre} $${total}`;
+        return descripcion;
     }
 }

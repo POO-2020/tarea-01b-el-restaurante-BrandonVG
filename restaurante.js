@@ -35,8 +35,8 @@ registrarPedidos(pedido){
     this.pedidos.push(pedido);
 }
 listarPedidos(){
-    this.pedidos.forEach(pedido =>{
-        console.log(pedido.listarElementos());
+    this.pedidos.forEach((pedido) =>{
+        console.log(pedido.getResumen());
     });
 }
 }

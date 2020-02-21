@@ -35,6 +35,7 @@ var pedido1 = new Pedido(new Fecha(19,2,2020),new Tiempo(22,10),new Cliente("Elm
 var pedido2 = new Pedido(new Fecha(19,2,2020),new Tiempo(22,10),new Cliente("Elmer",new Direccion("Falsa",124,0,"Malavista",28984,"Colima","Colima"),3123127485));
 var pedido3 = new Pedido(new Fecha(19,2,2020),new Tiempo(22,10),new Cliente("Elza",new Direccion("Falsa",125,0,"Malavista",28984,"Colima","Colima"),3123227485));
 pedido1.agregarElemento(elemento1);
+pedido1.agregarElemento(elemento2)
 pedido2.agregarElemento(elemento2);
 pedido3.agregarElemento(elemento3);
 pedido1.getCostoTotal(elemento1);
